@@ -1,0 +1,77 @@
+iptables -t mangle -A POSTROUTING -j TTL --ttl-set 65 - change ttl
+
+sudo apt update
+
+sudo apt full-upgrade
+
+flash, java, аудио- и видео-кодеки:
+apt-get install ubuntu-restricted-extras 
+
+Кнопки управления окном в нормальное положение
+sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+gconftool-2 --set "/apps/metacity/general/button_layout" --type string "menu:minimize,maximize,close"
+
+
+sudo apt remove pitivi
+
+sudo apt remove empathy empathy-common nautilus-sendto-empathy
+
+sudo apt remove gwibber gwibber-service
+
+sudo apt remove python-ubuntuone-client ubuntuone-client python-ubuntuone-storageprotocol ubuntuone-client-gnome rhythmbox-ubuntuone-music-store python-ubuntuone
+
+sudo apt remove vino
+
+sudo apt remove vinagre tsclient rdesktop
+
+sudo apt install remmina
+
+Удаляем вспомогательные функции, типа экранной лупы и тд
+sudo apt remove gnome-accessibility-themes gnome-dictionary gnome-mag at-spi libgail-gnome-module libatspi1.0-0 libgail-common libatk1.0-data libgnome-mag2 espeak-data espeak
+
+sudo apt install gdebi
+
+sudo apt remove rhythmbox totem totem-common
+
+sudo apt install vlc mozilla-plugin-vlc
+
+sudo add-apt-repository ppa:alexey-smirnov/deadbeef
+sudo apt-get update
+sudo apt-get install deadbeef
+
+sudo add-apt-repository ppa:tiheum/equinox
+sudo apt-get update && sudo apt-get install faenza-icon-theme equinox-theme equinox-ubuntu-theme
+
+Доп значки меню
+gconftool-2 --type boolean --set /desktop/gnome/interface/menus_have_icons true
+
+Доп значки иконок
+gconftool-2 --type boolean --set /desktop/gnome/interface/buttons_have_icons true
+
+sudo apt-get install compizconfig-settings-manager
+
+Уведомления о подкл устройствах
+wget download.learnfree.eu/repository/skss/udev-notify-0.1.2-all.deb ;
+dpkg -i udev-notify* ;
+apt-get install -f ;
+
+
+
+
+
+
+OPTIMIZATION
+Активация свопа при заполнении озу(дописать в конец файла)
+sudo vim /etc/sysctl.conf
+		 vm.swappiness=0
+
+Если 2-ч и более ядерный процессор 
+vim /etc/init.d/rc
+		CONCURRENCY=shell
+
+Приоритет графики 20(дописать перед exit)
+sudo vim /etc/rc.local
+		sudo renice -n -20 $(pidof X) 
+
+
+			
